@@ -12,45 +12,64 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 /* Utility */
 .flex_end {
     display: flex;
     justify-content: flex-end;
 }
 
-
 /* CHAT */
 .chat-box {
-    background-color: #000;
     width: 90%;
+    height: 80%;
     max-width: 900px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #000;
+    overflow: hidden;
 }
 
 .chat-box h1 {
     color: #fff;
     text-align: center;
     padding: 10px 0;
+    border-bottom: 1px solid #fff;
 }
 
 /* Section input text */
 .chat-box .input-container {
-    margin-bottom: 10px;
+    padding: 15px 0;
+    margin: 0 0 10px 0 ;
     display: flex;
+    border-bottom: 1px solid #fff;
 }
 
 .input-container .input-text {
     padding: 10px;
+    flex-grow: 1;
     border-radius: 10px;
     border: none;
-    flex-grow: 1;
+    background-color: rgba(255, 255, 255, 0.527);
+    transition: background .4s;
 }
 
 .input-container .send-button {
+    color: rgba(255, 255, 255, 0.493);
     padding: 10px;
     margin: 0 0 0 5px;
     border: none;
     border-radius: 10px;
     background-color: grey;
+    transition: background .4s;
+}
+
+.input-container .input-text:hover,
+.input-container .input-text:focus,
+.input-container .send-button:hover  {
+    color: #000;
+    box-shadow: 0 0 6px rgb(185, 184, 184);
+    background-color: #fff;
 }
 
 /* Message */
@@ -58,24 +77,36 @@ body {
 .message-box {
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
 }
 
 .message-send {
     width: max-content;
-    max-width: 400px;
+    min-width: 150px;
+    max-width: 300px;
     word-wrap: break-word;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: greenyellow;
+    background-color: rgba(60, 245, 219, 0.89);
     border-radius: 10px;
 }
 
 .message-recive {
     width: max-content;
+    min-width: 150px;
     max-width: 400px;
     word-wrap: break-word;
     padding: 10px;
     margin-bottom: 10px;
     background-color: #fff;
     border-radius: 10px;
+}
+
+.message .message-text {
+    font-size: 15px;
+}
+
+.message .message-time {
+    font-size: 10px;
 }
