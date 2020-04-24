@@ -118,4 +118,8 @@ jQuery(document).ready(function ($) {
         });
     }
 
+    function scroltop () {
+        var pixelScroll = $('.chat').height();
+        $('.message-box').scrollTop(pixelScroll);
+    }
 }); // ----------------------- End page
