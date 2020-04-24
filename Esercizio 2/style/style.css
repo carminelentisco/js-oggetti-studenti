@@ -1,0 +1,81 @@
+/* GENERAL RULE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Utility */
+.flex_end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* CHAT */
+.chat-box {
+    background-color: #000;
+    width: 90%;
+    max-width: 900px;
+}
+
+.chat-box h1 {
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Section input text */
+.chat-box .input-container {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.input-container .input-text {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    flex-grow: 1;
+}
+
+.input-container .send-button {
+    padding: 10px;
+    margin: 0 0 0 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: grey;
+}
+
+/* Message */
+
+.message-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-send {
+    width: max-content;
+    max-width: 400px;
+    word-wrap: break-word;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: greenyellow;
+    border-radius: 10px;
+}
+
+.message-recive {
+    width: max-content;
+    max-width: 400px;
+    word-wrap: break-word;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+}
