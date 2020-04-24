@@ -1,12 +1,11 @@
 jQuery(document).ready(function ($) {
     
     // Setup
-    var inputText = $('.input-text');
+    var inputText = $('.input-text').val('');
     var sendButton = $('.send-button');
-
     var source = $('#entry-template').html(); 
     var template = Handlebars.compile(source);
-
+    var messageBox = $('.message-box');
     var initialMessage = [
         {
             tipeOfMessage: 'message-send',
@@ -33,29 +32,22 @@ jQuery(document).ready(function ($) {
             timeMessage: '11:00'
         }
     ];
-    
+
+    // Print initial messages 
     for ( var key in initialMessage) {
         var html = template(initialMessage[key])
-        $('.message-box').append(html);
-        console.log(html);
-        
+        messageBox.append(html);   
     }
 
-    sendButton.on('click', function() {
-        var textMessage = inputText.val().trim();
+    clickSendMessageButton();
+    clickSendMessageKey();
+    
 
-        var messageSend = {
-            messageText: textMessage,
-            tipeOfMessage: 'message-send',
-            positionMessage: 'flex_end',
-            timeMessage: '11:00'
-        }
-
-        var html = template(messageSend);
-        $('.message-box').append(html);
-
+    /****************** FUNCTION ******************/
+    function reciveMessage() {
+        
         setTimeout(function(){
-
+    
             var messageRecive = {
                 messageText: 'ok',
                 tipeOfMessage: 'message-recive',
@@ -64,13 +56,66 @@ jQuery(document).ready(function ($) {
             }
 
             var html = template(messageRecive);
-            $('.message-box').append(html);
-
+            messageBox.append(html);
 
         }, 1000);
+
+    }
+
+    function clickSendMessageButton () {
+            
+            sendButton.on('click', function() {
         
+                if ( inputText.val() !== '') {
+                    
+                    var textMessage = inputText.val().trim();
+                    inputText.val('');
+            
+                    var messageSend = {
+                        messageText: textMessage,
+                        tipeOfMessage: 'message-send',
+                        positionMessage: 'flex_end',
+                        timeMessage: '11:00'
+                    }
+            
+                    var html = template(messageSend);
+                    messageBox.append(html);
+            
+                    reciveMessage(); 
 
+                }       
+                
+            } );
+        
+    }
 
-    } );
+    function clickSendMessageKey() {
+        inputText.keyup(function (e) { 
+            
+            if ( e.which == 13 ) {
+                
+                if ( inputText.val() !== '') {
+                    
+                    var textMessage = inputText.val().trim();
+                    inputText.val('');
+            
+                    var messageSend = {
+                        messageText: textMessage,
+                        tipeOfMessage: 'message-send',
+                        positionMessage: 'flex_end',
+                        timeMessage: '11:00'
+                    }
+            
+                    var html = template(messageSend);
+                    messageBox.append(html);
+            
+                    reciveMessage();        
+                     
+                }
+            
+            }
+            
+        });
+    }
 
-});
+}); // ----------------------- End page
