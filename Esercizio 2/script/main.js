@@ -33,6 +33,8 @@ jQuery(document).ready(function ($) {
         }
     ];
 
+    $('.chat-box').slideDown();
+
     // Print initial messages 
     for ( var key in initialMessage) {
         var html = template(initialMessage[key])
@@ -41,7 +43,6 @@ jQuery(document).ready(function ($) {
 
     clickSendMessageButton();
     clickSendMessageKey();
-    
 
     /****************** FUNCTION ******************/
     function reciveMessage() {
@@ -64,28 +65,26 @@ jQuery(document).ready(function ($) {
 
     function clickSendMessageButton () {
             
-            sendButton.on('click', function() {
-        
-                if ( inputText.val() !== '') {
-                    
-                    var textMessage = inputText.val().trim();
-                    inputText.val('');
-            
-                    var messageSend = {
-                        messageText: textMessage,
-                        tipeOfMessage: 'message-send',
-                        positionMessage: 'flex_end',
-                        timeMessage: '11:00'
-                    }
-            
-                    var html = template(messageSend);
-                    messageBox.append(html);
-            
-                    reciveMessage(); 
-
-                }       
+        sendButton.on('click', function() {
+    
+            if ( inputText.val() !== '') {
                 
-            } );
+                var textMessage = inputText.val().trim();
+                inputText.val('');
+        
+                var messageSend = {
+                    messageText: textMessage,
+                    tipeOfMessage: 'message-send',
+                    positionMessage: 'flex_end',
+                    timeMessage: '11:00'
+                }
+        
+                var html = template(messageSend);
+                messageBox.append(html);
+                reciveMessage(); 
+            }
+                    
+        } );
         
     }
 
@@ -108,18 +107,13 @@ jQuery(document).ready(function ($) {
             
                     var html = template(messageSend);
                     messageBox.append(html);
-            
-                    reciveMessage();        
-                     
+
+                    reciveMessage();
                 }
             
             }
             
         });
     }
-
-    function scroltop () {
-        var pixelScroll = $('.chat').height();
-        $('.message-box').scrollTop(pixelScroll);
-    }
+ 
 }); // ----------------------- End page
